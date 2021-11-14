@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavadero Barroso</title>
+    <link rel="shortcut icon" href="./Fuentes/auto.png">
+
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Roboto">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Architects+Daughter#standard-styles">
+    <link rel="stylesheet" type="text/css" href="Mi PaginaWeb.CSS">
+</head>
+<body>
+    <noscript>
+        <p>La página que estás viendo requiere  el uso de JavaScript. Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
+    </noscript>
+    <header class="header">
+        <div class="container logo-nav-container">
+            <a href="index.html" class="logo">Lavadero Barroso</a>
+            <span class="menu-icon">ver menu</span>
+            <nav class="navegacion">
+                <ul class="show">
+                    <li><a title="Inicio" type="text/html" href="index.html">Inicio</a></li>
+                    <li><a title="Servicios"type="text/html" href="servicios.html">Servicios</a></li>
+                    <li><a title="Turnos" target="_blank" type="text/html" href="Turnos.html">Turnos</a></li>
+                    <li><a href="#Contactos" title="Contactos">Contactos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+        <div class="carousel">
+            <div class="imgs fade">
+              <div class="gotaDeAgua">BarrosoLV</div>
+              <img src="lavado.jpg" style="width:100%">
+              <div class="contador">1/3</div>
+            </div>
+            
+            <div class="imgs fade">
+              <div class="gotaDeAgua">BarrosoLV</div>
+              <img src="lavado4.jpg" style="width:100%">
+              <div class="contador">2/3</div>
+            </div>
+            
+            <div class="imgs fade">
+              <div class="gotaDeAgua">BarrosoLV</div>
+              <img src="lavado3.jpg" style="width:100%">
+              <div class="contador">3/3</div>
+            </div>
+            
+            <a class="prev" onclick="puntero(-1)">&#10094;</a>
+            <a class="next" onclick="puntero(1)">&#10095;</a>
+            
+        </div>
+            <br>
+            
+            <div style="text-align:center">
+              <span class="punto" onclick="orden(1)"></span> 
+              <span class="punto" onclick="orden(2)"></span> 
+              <span class="punto" onclick="orden(3)"></span> 
+            </div>
+            <h2 id="atencion">Disfruta de los mejores servicios a un precio accecible, NO TE LOS PIERDAS!!</h2>
+    <div class="principal">
+        <div class="container">
+            <h2 id="Servicios">Servicios</h2>
+            <ul>
+                <li><a href="servicios.html #Lavado de Tapizados" title="Lavados de Tapizados">Lavados de Tapizados</a></li>
+                <li><a href="servicios.html #Lavados de Carroceria" title="Lavados de Carroceria">Lavados de Carroceria</a></li>
+                <li><a href="servicios.html #Combo de Lavado y Aspirado" title="Combo de Lavado y Aspirado">Combo de Lavado y Aspirado</a></li>           
+            </ul>
+        </div>
+    </div>
+    <footer id="Contactos" class="footer">
+        <div class="conteiner">
+            <p>Creado por @AgustinBarroso. Todos los derechos de autor reservados.</p>
+            <ul> 
+                <li class="nada"><a href="" title="gmail"><img src="https://img.icons8.com/color/48/000000/gmail--v1.png" height="30px" width="30px"/>Agustinbarroso919@gmail.com</a></li>
+                <li class="nada"><a href="https://www.instagram.com/agustin_barroso919/?hl=es" title="facebook"><img src="https://img.icons8.com/color/48/000000/instagram-new--v1.png" width="30px" height="30px"/>agustin_barroso919</a></li>
+                <li class="nada"><a href="https://www.facebook.com/agustin.barrosl/" title="instagram"><img src="https://img.icons8.com/color/48/000000/facebook.png" width="30px" height="30px"/>Agustin Barroso</a></li>
+                <li class="nada"><a href="" title="whatsapp"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" height="30px" width="30px"/>2664837881</a></li>
+            </ul>   
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        var lugar = 1;
+        verimagenes(lugar);
+        
+        function puntero(n) {
+            verimagenes(lugar += n);
+        }
+        
+        function orden(n) {
+            verimagenes(lugar = n);
+        }
+        
+        function verimagenes(n) {
+          var i;
+          var imagen = document.getElementsByClassName("imgs");
+          var puntos = document.getElementsByClassName("punto");
+          if (n > imagen.length) {lugar = 1}    
+          if (n < 1) {lugar = imagen.length}
+          for (i = 0; i < imagen.length; i++) {
+            imagen[i].style.display = "none";  
+          }
+          for (i = 0; i < puntos.length; i++) {
+            puntos[i].className = puntos[i].className.replace(" active", "");
+          }
+          imagen[lugar-1].style.display = "block";  
+          puntos[lugar-1].className += " active";
+        }
+        </script>
+</body>
+</html>
