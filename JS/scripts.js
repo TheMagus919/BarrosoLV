@@ -94,14 +94,25 @@ debugger;
 
     if(servicio.value==0||servicio.value==""){
         errores.push("No selecciono un Servicio.");
-        document.getElementById("Fecha").style.border = "1px solid red";
+        document.getElementById("Servicios").style.color = "red";
+        document.getElementById("Servicios").style.textDecoration= "underline";
     } else {
-        document.getElementById("Fecha").style.border = "";
+        document.getElementById("Servicios").style.color = "black";
+        document.getElementById("Servicios").style.textDecoration= "none";
         if(servicio.value==1){
-            Correctas.push("Servicio: asd");
+            Correctas.push("Servicio: Lavado y Aspirado");
         }
         if(servicio.value==2){
-            Correctas.push("Servicio: dsa");
+            Correctas.push("Servicio: Lavado de interior Completo");
+        }
+        if(servicio.value==3){
+            Correctas.push("Servicio: Lavado Premium");
+        }
+        if(servicio.value==4){
+            Correctas.push("Servicio: Lavado de Tapizados y Techo");
+        }
+        if(servicio.value==5){
+            Correctas.push("Servicio: Lavado de Butacas");
         }
     }
     if(seleccionada>=now){
